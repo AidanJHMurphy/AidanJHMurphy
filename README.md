@@ -1,0 +1,5 @@
+- 👋 Hi, I’m @AidanJHMurphy
+- 👀 I’m interested in clean energy, sustainability, and fun web projects.
+- 🌱 I’m currently learning to code again from scratch so that I can unlearn any bad habits I've picked up.
+- 💞️ I’m looking to collaborate on any fun, open-source project
+- 📫 How to reach me AidanJHMurphy@Gmail.com or on discord as Aidan Murphy#4673
