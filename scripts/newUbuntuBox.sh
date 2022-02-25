@@ -19,6 +19,7 @@
 # - Config:
 #  - Add right-click => New File option
 #  - Add Super+E hotkey to open file explorer
+#  - This: https://askubuntu.com/questions/1214672/map-superarrowdown-to-minimize-a-window-while-the-window-is-focused-the-win
 #  - Select Dark Theme
 #  - Move Navigation to bottom
 #  - Set dock to Auto Hide
