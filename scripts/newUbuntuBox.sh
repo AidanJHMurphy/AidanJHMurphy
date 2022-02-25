@@ -17,6 +17,8 @@
 #  - Gammy
 #   - Figure out what config can be done from a script
 # - Config:
+#  - Add right-click => New File option
+#  - Add Super+E hotkey to open file explorer
 #  - Select Dark Theme
 #  - Move Navigation to bottom
 #  - Set dock to Auto Hide
