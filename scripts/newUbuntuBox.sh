@@ -2,11 +2,6 @@
 # Script to run after installing a fresh copy of Ubuntu. These are just some basic personalizations and quality-of-life things that I like.
 # TODO:
 # - Download some sick wallpapaer backgrounds into ~/Pictures/'Desktop Backgrounds'
-# - CRONTAB
-#  - Periodically flush old trash
-#  - Periodically run sudo apt-get update
-#  - periodically run sudo apt-get upgrade
-#  - periodically run sudo apt-get autoremove
 
 # Update package repository cache
 sudo add-apt-repository multiverse
@@ -130,3 +125,11 @@ gsettings set org.gnome.desktop.wm.keybindings unmaximize ['<Alt><Super>Down']
 $BEGINNING/custom1/ name 'Super Minimize'
 $BEGINNING/custom1/ binding '<Super>Down'
 $BEGINNING/custom1/ command '/home/'$USER'/.custom_keyboard_shortcut_scripts/superMin.sh'
+
+# Periodically Flush the Trash
+(crontab -l 2>/dev/null; echo "0 12 * * 7 trash-empty 14")|awk '!x[$0]++'|crontab -
+
+# Periodically Update and Clean
+(sudo crontab -l 2>/dev/null; echo "0 12 12 * * apt-git update")|awk '!x[$0]++'| sudo crontab -
+(sudo crontab -l 2>/dev/null; echo "0 12 13 * * apt-git upgrade")|awk '!x[$0]++'| sudo crontab -
+(sudo crontab -l 2>/dev/null; echo "0 12 14 * * apt-git autoremove")|awk '!x[$0]++'| sudo crontab -
