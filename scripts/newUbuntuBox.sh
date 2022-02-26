@@ -119,7 +119,7 @@ $BEGINNING/custom0/ command 'nautilus --browser'
 
 # Set Super+Down to minimize a window
 # Free up Super+Down keyboard shortcu which is taken by restore by default
-gsettings set org.gnome.desktop.wm.keybindings unmaximize ['<Alt><Super>Down']
+gsettings set org.gnome.desktop.wm.keybindings unmaximize ['']
 
 # Wire up Super+Down
 $BEGINNING/custom1/ name 'Super Minimize'
