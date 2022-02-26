@@ -1,8 +1,0 @@
-#!/bin/bash
-# TODO:
-# - Add directory parameter
-# - Name file based on the module we're vetting
-# - output files in the script caller directory
-
-go vet -json ./... 2> vet.json
-go test ./... -json | tee test.json >/dev/null
