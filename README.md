@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @AidanJHMurphy
 - 👀 I’m interested in clean energy, sustainability, and fun web projects.
-- 🌱 I've been a professional software developer for >7 years (mostly back end, but a fair amount of front-end thrown in there too.). I'm currently trying to re-teach myself to code again from "scratch" (as mush as I can pretent to not know thing) so that I can unlearn any bad habits I've picked up. Currently enjoying go and bash scripting.
+- 🌱 I've been a professional software developer for since 2015 (mostly back end, but a fair amount of front-end thrown in there too). I'm constantly trying to learn and grow in order to find out the best of what's available (and un-learn any bad habits I've picked up). Currently enjoying go and might possibly dip my toes into rust.
 - 💞️ I’m looking to collaborate on any fun, open-source project
 - 📫 How to reach me AidanJHMurphy@Gmail.com or on discord as Aidan Murphy#4673
