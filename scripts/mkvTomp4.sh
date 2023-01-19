@@ -1,5 +1,8 @@
 #!/bin/bash
-# This script is designed to loop over the files in a directory, and convert any .mkv files to a .mp4 format.
+# This script is designed to loop over the files in a directory, and convert any .mkv files to a .mp4 format using H.264 video encoding at frame rate of 30, and AAC audio encoding.
+# If multiple video tracks exist, only the first video track will be encoded.
+# If one exists, the English audio track will be set as the default audio track.
+#
 # It is required that you have ffmpeg installed
 # We won't overwrite an existing mp4 file if one already exists with the same name
 
@@ -11,10 +14,11 @@ fi
 helpFunction()
 {
 	echo "Convert mkv files to mp4 format using the same codec"
-	echo "Usage $0 -d directory [-v] [-k]"
-	echo -e "\t -d the directory containing files to convert"
-	echo -e "\t -v prints each file examined, and not just errors"
-	echo -e "\t -k kill the original mkv file after conversion"
+	echo "Usage $0 -d directory [-v] [-k] [-l]"
+	echo -e "\t -d directory\tthe directory containing files to convert"
+	echo -e "\t -v\tprints each file examined, and not just errors"
+	echo -e "\t -k\tkill the original mkv file after conversion"
+	echo -e "\t -l loglevel\tlog level for ffmpeg to use. Default to 'error'"
 	exit 1 # Exit script after printing help
 }
 
@@ -23,6 +27,8 @@ convertFile()
 	local fullFilename="$1"
 	local verbose="$2"
 	local killFile="$3"
+	local logLevel="$4"
+
 	local extension="${fullFilename##*.}"
 	local filename="${fullFilename%.*}"
 	if [ $extension == "mkv" ]
@@ -31,8 +37,8 @@ convertFile()
 		then 
 			echo "converting $fullFilename"
 		fi
-
-		ffmpeg -n -hide_banner -loglevel error -i "$fullFilename" -c copy "$filename"".mp4"
+		
+		ffmpeg -n -hide_banner -loglevel "$logLevel" -i "$fullFilename" -map 0:v -map 0:a -map 0:s -disposition:a:m:language:eng default -c copy -c:v h264 -r 30 -c:a aac -c:s mov_text "$filename"".mp4"
 		
 		if [ $killFile == "true" ]
 		then
@@ -48,13 +54,15 @@ convertFile()
 
 verbose=false
 killFile=false
+logLevel=error
 
-while getopts d:vkh flag
+while getopts d:l:vkh flag
 do
 	case "${flag}" in
 		d ) directory=${OPTARG};;
 		v ) verbose=true;;
 		k ) killFile=true;;
+		l ) logLevel=${OPTARG};;
 		h ) #display help
 			helpFunction;;
 	esac
@@ -64,9 +72,12 @@ done
 [ -z "$directory" ] && echo "directory is required" && exit 13
 [ ! -d "$directory" ] && echo "invalid directory: $directory" && exit 2
 
-echo "processing directory: $directory"
+if [ $verbose == "true" ]
+then
+	echo "p[rocessing directory: $directory"
+fi
 
 cd "$directory"
 for filename in ./*; do
-	convertFile "$filename" "$verbose" "$killFile"
+	convertFile "$filename" "$verbose" "$killFile" "$logLevel"
 done
