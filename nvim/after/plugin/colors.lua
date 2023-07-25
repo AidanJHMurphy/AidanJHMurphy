@@ -2,4 +2,5 @@ require("tokyonight").setup({
 	style = "storm",
 })
 
-vim.cmd[[colorscheme tokyonight]]
+vim.opt.termguicolors = true
+vim.cmd.colorscheme('tokyonight')
