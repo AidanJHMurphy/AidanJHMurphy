@@ -43,7 +43,10 @@ return require('packer').startup(function(use)
     -- terminal launcher
     use 'NvChad/nvterm'
     -- syntax highlighting
-    use 'nvim-treesitter/nvim-treesitter'
+    use { 
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
     -- auto-complete paired symbols
     -- apparently this one might break visual-multi (multi-cursor)
@@ -61,7 +64,8 @@ return require('packer').startup(function(use)
     -- inline hex colors
     use {
         'RRethy/vim-hexokinase',
-        run = 'make mexokinase'
+    --    run = 'make hexokinase'
+        run = ':!pwd'
     }
 
     -- lsp manager
