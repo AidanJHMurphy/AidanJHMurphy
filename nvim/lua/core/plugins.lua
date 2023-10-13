@@ -73,6 +73,12 @@ return require('packer').startup(function(use)
         'neovim/nvim-lspconfig',
     }
 
+    -- DB interface
+    use {
+        'tpope/vim-dadbod',
+        'kristijanhusak/vim-dadbod-ui'
+    }
+
     -- Markdown preview
     use({
         "iamcco/markdown-preview.nvim",
