@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
     -- pretty bottom line
     use {
         'nvim-lualine/lualine.nvim',
-        after = 'nvim-tree/nvim-web-devicons'
+        after = 'nvim-web-devicons'
     }
 
     -- searching
@@ -59,7 +59,10 @@ return require('packer').startup(function(use)
     use 'ellisonleao/gruvbox.nvim'
 
     -- inline hex colors
-    use 'RRethy/vim-hexokinase'
+    use {
+        'RRethy/vim-hexokinase',
+        run = 'make mexokinase'
+    }
 
     -- lsp manager
     use {
