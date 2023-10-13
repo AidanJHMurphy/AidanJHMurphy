@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
     -- terminal launcher
     use 'NvChad/nvterm'
     -- syntax highlighting
-    use { 
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
     -- inline hex colors
     use {
         'RRethy/vim-hexokinase',
-         run = 'make hexokinase'
+        run = 'make hexokinase'
     }
 
     -- lsp manager
@@ -72,6 +72,12 @@ return require('packer').startup(function(use)
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
     }
+
+    -- Markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
     -- code completion
     use 'hrsh7th/nvim-cmp'
