@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
         "cssls",
         "bashls",
         "marksman",
+        "nil_ls",
     }
 })
 
