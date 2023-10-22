@@ -10,8 +10,8 @@ local ensure_packer = function()
             'https://github.com/wbthomason/packer.nvim',
             install_path
         })
-        vim.cmd [[packadd packer.nvim]]
-        return true
+    vim.cmd [[packadd packer.nvim]]
+    return true
     end
     return false
 end
@@ -31,6 +31,15 @@ return require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
     }
+
+    -- nice splash screen
+    -- seems to be overwritten by barbar: https://github.com/romgrk/barbar.nvim/issues/441
+    -- use {
+    --     'goolord/alpha-nvim',
+    --     config = function ()
+    --         require'alpha'.setup(require'alpha.themes.startify'.config)
+    --     end
+    -- }
 
     -- searching
     use {
