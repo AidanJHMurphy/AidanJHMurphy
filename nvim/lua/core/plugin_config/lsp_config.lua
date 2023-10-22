@@ -16,6 +16,16 @@ require("mason-lspconfig").setup({
     }
 })
 
+--try out:
+-- alex: inclusive phrasing
+-- cbfmt: code blocks within a markdown doc
+-- glow: Markdown pizzaz?
+-- ltexls: latex and markdown?
+-- markdownlint: more markdown?
+-- mdformat: moremarkdown?!
+-- prettier: Replacement for markdown, css, html, json, jsx, javascript, typescript, yaml, more!
+
+
 -- standard keybinding
 local custom_lsp_keymaps = function()
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
@@ -129,10 +139,10 @@ lsp.bashls.setup {
     capabilities = default_capabilities,
 }
 
-lsp.marksman.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-}
+--lsp.marksman.setup {
+--    on_attach = default_on_attach,
+--    capabilities = default_capabilities,
+--}
 
 lsp.yamlls.setup {
     on_attach = default_on_attach,
