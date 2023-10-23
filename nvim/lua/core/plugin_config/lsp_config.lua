@@ -13,6 +13,7 @@ require("mason-lspconfig").setup({
         "bashls",
         "marksman",
         "nil_ls",
+        "rust_analyzer",
     }
 })
 
@@ -152,4 +153,11 @@ lsp.yamlls.setup {
 lsp.cssls.setup {
     on_attach = default_on_attach,
     capabilities = default_capabilities,
+}
+
+lsp.rust_analyzer.setup{
+    on_attach = default_on_attach,
+    capabilities = default_capabilities,
+    filetypes = { "rust" },
+    root_dir = util.root_pattern("Cargo.toml"),
 }
