@@ -56,6 +56,10 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
+    -- debugger
+    -- TODO: Play around with this
+    -- use 'mfussenegger/nvim-dap'
+
     -- auto-complete paired symbols
     -- apparently this one might break visual-multi (multi-cursor)
     use 'jiangmiao/auto-pairs'
