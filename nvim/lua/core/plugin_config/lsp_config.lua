@@ -155,6 +155,8 @@ lsp.cssls.setup {
     capabilities = default_capabilities,
 }
 
+-- May need to use patchelf on the binary
+-- See: https://nixos.wiki/wiki/Packaging/Binaries
 lsp.rust_analyzer.setup{
     on_attach = default_on_attach,
     capabilities = default_capabilities,
