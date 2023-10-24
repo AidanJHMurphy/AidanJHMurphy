@@ -10,10 +10,6 @@ vim.api.nvim_set_keymap('n', '<S-TAB>', '<Cmd>BufferPrevious<CR>', opts)
 vim.g.barbar_auto_setup = false
 
 require'barbar'.setup {
-    auto_hide = 0,
-    
-    hide = {inactive = true},
-
     icons = {
         gitsigns = {
             added = {enabled = true, icon = '+'},
