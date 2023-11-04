@@ -13,6 +13,7 @@ require("mason-lspconfig").setup({
         "bashls",
         "marksman",
         "nil_ls",
+        "pylsp",
     }
 })
 
@@ -150,6 +151,11 @@ lsp.yamlls.setup {
 }
 
 lsp.cssls.setup {
+    on_attach = default_on_attach,
+    capabilities = default_capabilities,
+}
+
+lsp.pylsp.setup {
     on_attach = default_on_attach,
     capabilities = default_capabilities,
 }
