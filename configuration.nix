@@ -113,14 +113,13 @@ in
     description = "Aidan Murphy";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
       neofetch
-      vlc
-      eartag
       freecad
+      snapmaker-luban
       gimp
       keepassxc
-      mozillavpn
+      eartag
+      protonvpn-gui
       texworks
       inkscape
       discord
@@ -129,6 +128,7 @@ in
       btop
       go
       cargo
+      rustup
       lua
       lsd
       bat
@@ -144,6 +144,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    firefox
     neovim
     alacritty
     git
@@ -165,10 +166,14 @@ in
     wl-clipboard
     wget
     unzip
+    vlc
+    libinput
     
+    gnome.gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
+    gnomeExtensions.custom-accent-colors
   #  wget
   ];
 
