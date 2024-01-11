@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ...}:
+{ config, pkgs, lib, ...}:
 let
   unstable = import <nixpkgs-unstable> {};
 in
@@ -26,8 +26,8 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "America/Chicago";
+  # Allow user to set their time zone.
+  time.timeZone = lib.mkForce null;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
