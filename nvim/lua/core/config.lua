@@ -34,3 +34,6 @@ vim.opt.colorcolumn = "80"
 -- turn on US English spell checking
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+
+-- always use system clipboard for yank
+vim.opt.clipboard = "unnamedplus"
