@@ -57,11 +57,14 @@ return require('packer').startup(function(use)
     -- apparently this one might break visual-multi (multi-cursor)
     use 'jiangmiao/auto-pairs'
 
-    -- visual git integration
+    -- visual git icons
     use 'lewis6991/gitsigns.nvim'
 
     -- nice tab manager
     use 'romgrk/barbar.nvim'
+
+    -- nice git integration
+    use 'tpope/vim-fugitive'
 
     -- themes
     use 'ellisonleao/gruvbox.nvim'
