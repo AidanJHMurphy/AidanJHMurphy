@@ -37,12 +37,7 @@ return require('packer').startup(function(use)
     }
 
     -- nice splash screen
-    use {
-        'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.startify'.config)
-        end
-    }
+    use 'goolord/alpha-nvim'
 
     -- searching
     use {
