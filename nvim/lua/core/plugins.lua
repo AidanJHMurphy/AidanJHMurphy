@@ -37,7 +37,6 @@ return require('packer').startup(function(use)
     }
 
     -- nice splash screen
-    -- seems to be overwritten by barbar: https://github.com/romgrk/barbar.nvim/issues/441
     use {
         'goolord/alpha-nvim',
         config = function ()
