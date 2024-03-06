@@ -199,6 +199,14 @@ in
   #   enableSSHSupport = true;
   # };
 
+  # Fix for dynamic libraries
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackeged programs here.
+    # to find the required libraries, use ldd [binary]
+    # https://github.com/Mic92/nix-ld?tab=readme-ov-file#Usage
+  ];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
