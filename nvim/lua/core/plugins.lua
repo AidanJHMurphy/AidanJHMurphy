@@ -27,6 +27,10 @@ return require('packer').startup(function(use)
     -- icons
     use 'nvim-tree/nvim-web-devicons'
 
+    -- lua library for neovim async
+    -- dependency of several packages
+    use 'nvim-lua/plenary.nvim'
+
     -- pretty bottom line
     use {
         'nvim-lualine/lualine.nvim',
@@ -34,18 +38,17 @@ return require('packer').startup(function(use)
 
     -- nice splash screen
     -- seems to be overwritten by barbar: https://github.com/romgrk/barbar.nvim/issues/441
-    -- use {
-    --     'goolord/alpha-nvim',
-    --     config = function ()
-    --         require'alpha'.setup(require'alpha.themes.startify'.config)
-    --     end
-    -- }
+    use {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.startify'.config)
+        end
+    }
 
     -- searching
     use {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.0',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        tag = '0.1.0'
     }
 
     -- terminal launcher
