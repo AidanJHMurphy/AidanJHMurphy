@@ -168,6 +168,7 @@ in
     unzip
     vlc
     libinput
+    feh
     
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
