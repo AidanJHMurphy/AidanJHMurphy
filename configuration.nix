@@ -228,7 +228,22 @@ in
   system.stateVersion = "23.05"; #Did you read the comment?
 
   # Automatically update
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade = {
+    enable = true;
+    # flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L" # print build logs
+    ];
+    dates = "02:00";
+    randomizedDelaySec = "45min";
+  };
+  # Get upgrade timer status:
+  # systemctl status nixos-upgrade.timer
+
+  # Print upgrade log:
+  # systemctl status nixos-upgrade.service
 
   # Remove NixOs manual documentaiton app
   documentation.nixos.enable = false;
