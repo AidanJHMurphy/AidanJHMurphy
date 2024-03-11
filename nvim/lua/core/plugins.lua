@@ -10,8 +10,8 @@ local ensure_packer = function()
             'https://github.com/wbthomason/packer.nvim',
             install_path
         })
-    vim.cmd [[packadd packer.nvim]]
-    return true
+        vim.cmd [[packadd packer.nvim]]
+        return true
     end
     return false
 end
@@ -52,6 +52,8 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+
+    use 'tpope/vim-commentary'
 
     -- auto-complete paired symbols
     -- apparently this one might break visual-multi (multi-cursor)
