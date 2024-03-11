@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
+    -- code comments
     use 'tpope/vim-commentary'
 
     -- auto-complete paired symbols
