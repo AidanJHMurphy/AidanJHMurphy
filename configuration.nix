@@ -113,28 +113,28 @@ in
     description = "Aidan Murphy";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      neofetch
-      freecad
-      snapmaker-luban
-      gimp
-      keepassxc
-      eartag
-      protonvpn-gui
-      texworks
-      inkscape
-      discord
-      audacity
-      nextcloud-client
-      btop
-      go
-      cargo
-      rustup
-      lua
-      lsd
-      bat
+      neofetch # silly cli display tool
+      freecad # CAD softward
+      snapmaker-luban # 3D printing
+      gimp # image editing
+      keepassxc # password manager
+      eartag # music file tagger
+      protonvpn-gui # GUI for Proton VPN
+      texworks # LaTeX editor
+      inkscape # image editor and design tool
+      discord # group chat and forum
+      audacity # audio editor
+      nextcloud-client # self-hosted cloud platform
+      btop # better system monitor cli
+      go # golang software
+      cargo # rust coding
+      rustup # rust package manager
+      lua # lua coding
+      lsd # better ls utility for terminal
+      bat # better cat utility for terminal
 
-      unstable.yazi
-      thunderbird
+      unstable.yazi # terminal file browser
+      thunderbird # email client
     ];
   };
   
@@ -144,38 +144,37 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox
-    neovim
-    alacritty
-    git
-    ffmpeg
-    ffmpegthumbnailer
-    fd
-    ripgrep
-    jq
-    unar
-    poppler_utils
-    zoxide
-    fzf
-    sxiv
-    ueberzugpp
-    calc
-    gcc
-    nodejs
-    gnumake
-    wl-clipboard
-    wget
-    unzip
-    vlc
-    libinput
-    feh
+    firefox # web browser
+    neovim # terminal editor
+    alacritty # terminal
+    git # version control
+    ffmpeg # video/audio editing and conversion
+    ffmpegthumbnailer # thumbnails for video file
+    fd # better find utility
+    ripgrep # fast search
+    jq # command line json parsing
+    unar # winrar-style file zip/unzip utility
+    poppler_utils # pdf rendering
+    zoxide # improved cd cli tool
+    fzf # fuzzy finder
+    sxiv # simple image viewer
+    ueberzugpp # preview for 
+    calc # terminal calculator
+    gcc # gnu compiler
+    nodejs # javascript runtime
+    gnumake # executable generation
+    wl-clipboard # cli clipboard utility
+    wget # retrieve content from web servers
+    unzip # unzipping utility
+    vlc # media player
+    libinput # handle input devices in wayland compositors
+    feh # image viewer
     
-    gnome.gnome-tweaks
-    gnomeExtensions.appindicator
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.just-perfection
-    gnomeExtensions.custom-accent-colors
-  #  wget
+    gnome.gnome-tweaks # support gnome desktop extensions
+    gnomeExtensions.appindicator # add app indicator
+    gnomeExtensions.blur-my-shell # visual tweak to app view
+    gnomeExtensions.just-perfection # finely tweak gnome desktop
+    gnomeExtensions.custom-accent-colors # add accent colors to gnome desktop
   ];
 
   # gnome-settings-daemon udev rules required for systeay icons
