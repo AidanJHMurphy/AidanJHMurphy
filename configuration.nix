@@ -105,6 +105,8 @@ in
   };
 
   # Enable support for Bluetooth devices
+  # https://nixos.wiki/wiki/Bluetooth
+  services.blueman.enable = true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -175,6 +177,7 @@ in
     vlc # media player
     libinput # handle input devices in wayland compositors
     feh # image viewer
+    bluez # bluetooth support
     
     gnome.gnome-tweaks # support gnome desktop extensions
     gnomeExtensions.appindicator # add app indicator
