@@ -110,6 +110,17 @@ in
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
+    settings = {
+      General = {
+        Name = "Hello";
+	ControllerMode = "dual";
+	FastConnectable = "true";
+        Experimental = "true";
+      };
+      Policy = {
+        AutoEnable = "true";
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -219,7 +230,6 @@ in
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  services.mozillavpn.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
