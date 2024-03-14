@@ -138,19 +138,11 @@ in
       gimp # image editing
       keepassxc # password manager
       eartag # music file tagger
-      protonvpn-gui # GUI for Proton VPN
       texworks # LaTeX editor
       inkscape # image editor and design tool
       discord # group chat and forum
       audacity # audio editor
       nextcloud-client # self-hosted cloud platform
-      btop # better system monitor cli
-      go # golang software
-      cargo # rust coding
-      rustup # rust package manager
-      lua # lua coding
-      lsd # better ls utility for terminal
-      bat # better cat utility for terminal
 
       unstable.yazi # terminal file browser
       thunderbird # email client
@@ -189,6 +181,16 @@ in
     libinput # handle input devices in wayland compositors
     feh # image viewer
     bluez # bluetooth support
+    btop # better system monitor cli
+    lsd # better ls utility for terminal
+    bat # better cat utility for terminal
+    protonvpn-gui # GUI for Proton VPN
+    alejandra # formatting for nixpkgs
+    
+    go # golang software
+    cargo # rust coding
+    rustup # rust package manager
+    lua # lua coding
     
     gnome.gnome-tweaks # support gnome desktop extensions
     gnomeExtensions.appindicator # add app indicator
