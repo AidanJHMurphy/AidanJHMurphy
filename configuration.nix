@@ -1,16 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ...}:
-let
-  unstable = import <nixpkgs-unstable> {};
-in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  unstable = import <nixpkgs-unstable> {};
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -51,25 +53,37 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs.gnome; [
-    baobab      # disk usage analyzer
-    cheese      # photo booth
-    eog         # image viewer
-    epiphany    # web browser
-    gedit       # text editor
+    baobab # disk usage analyzer
+    cheese # photo booth
+    eog # image viewer
+    epiphany # web browser
+    gedit # text editor
     simple-scan # document scanner
-    totem       # video player
-    yelp        # help viewer
-    evince      # document viewer
+    totem # video player
+    yelp # help viewer
+    evince # document viewer
     file-roller # archive manager
-    geary       # email client
-    seahorse    # password manager
+    geary # email client
+    seahorse # password manager
 
     # these should be self explanatory
-    gnome-calendar gnome-characters gnome-clocks gnome-contacts
-    gnome-font-viewer gnome-logs gnome-maps gnome-music
-    gnome-system-monitor gnome-weather pkgs.gnome-connections
-    pkgs.gnome-text-editor pkgs.gnome-console pkgs.gnome-tour
-    gnome-screenshot gnome-calculator pkgs.gnome-photos
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-contacts
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
+    gnome-system-monitor
+    gnome-weather
+    pkgs.gnome-connections
+    pkgs.gnome-text-editor
+    pkgs.gnome-console
+    pkgs.gnome-tour
+    gnome-screenshot
+    gnome-calculator
+    pkgs.gnome-photos
 
     # Actually want to keep using these, but listing for reference
     # gnome-disk-utility
@@ -113,8 +127,8 @@ in
     settings = {
       General = {
         Name = "Hello";
-	ControllerMode = "dual";
-	FastConnectable = "true";
+        ControllerMode = "dual";
+        FastConnectable = "true";
         Experimental = "true";
       };
       Policy = {
@@ -130,7 +144,7 @@ in
   users.users.amurphy = {
     isNormalUser = true;
     description = "Aidan Murphy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       neofetch # silly cli display tool
       freecad # CAD softward
@@ -148,7 +162,7 @@ in
       thunderbird # email client
     ];
   };
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -169,7 +183,7 @@ in
     zoxide # improved cd cli tool
     fzf # fuzzy finder
     sxiv # simple image viewer
-    ueberzugpp # preview for 
+    ueberzugpp # preview for
     calc # terminal calculator
     gcc # gnu compiler
     nodejs # javascript runtime
@@ -186,12 +200,12 @@ in
     bat # better cat utility for terminal
     protonvpn-gui # GUI for Proton VPN
     alejandra # formatting for nixpkgs
-    
+
     go # golang software
     cargo # rust coding
     rustup # rust package manager
     lua # lua coding
-    
+
     gnome.gnome-tweaks # support gnome desktop extensions
     gnomeExtensions.appindicator # add app indicator
     gnomeExtensions.blur-my-shell # visual tweak to app view
@@ -206,8 +220,9 @@ in
 
   # Add additional font options
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [
-      "JetBrainsMono"
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
       ];
     })
   ];
@@ -261,5 +276,4 @@ in
 
   # Remove NixOs manual documentaiton app
   documentation.nixos.enable = false;
-
 }
