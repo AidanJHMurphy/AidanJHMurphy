@@ -104,6 +104,12 @@ in
     #media-session.enable = true;
   };
 
+  # Enable support for Bluetooth devices
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
