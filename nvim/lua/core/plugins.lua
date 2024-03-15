@@ -75,7 +75,10 @@ return require('packer').startup(function(use)
     -- inline hex colors
     use {
         'RRethy/vim-hexokinase',
-        run = 'make hexokinase'
+        -- https://github.com/wbthomason/packer.nvim/discussions/838
+        -- Need to figure out a less fragile way to run the make file
+        -- other than cd-ing into a hard-coded path
+        run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase',
     }
 
     -- lsp manager
