@@ -120,21 +120,19 @@ in {
 
   # Enable support for Bluetooth devices
   # https://nixos.wiki/wiki/Bluetooth
-  services.blueman.enable = true;
   hardware.bluetooth = {
     enable = true;
+    # Turn on bluetooth hardware at boot
     powerOnBoot = true;
-    disabledPlugins = [
-      # Don't need Status Item since gnome manages bluetooth
-      "StatusNotifierItem"
-    ];
     settings = {
       General = {
         ControllerMode = "dual";
+        # show charge of bluetooth devices
         Experimental = "true";
       };
       Policy = {
-        AutoEnable = "true";
+        # Don't enable bluetooth connections automatically
+        AutoEnable = "false";
       };
     };
   };
