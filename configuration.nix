@@ -124,11 +124,13 @@ in {
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
+    disabledPlugins = [
+      # Don't need Status Item since gnome manages bluetooth
+      "StatusNotifierItem"
+    ];
     settings = {
       General = {
-        Name = "Hello";
         ControllerMode = "dual";
-        FastConnectable = "true";
         Experimental = "true";
       };
       Policy = {
@@ -194,7 +196,6 @@ in {
     vlc # media player
     libinput # handle input devices in wayland compositors
     feh # image viewer
-    bluez # bluetooth support
     btop # better system monitor cli
     lsd # better ls utility for terminal
     bat # better cat utility for terminal
