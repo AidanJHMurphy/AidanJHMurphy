@@ -157,9 +157,10 @@ in {
       discord # group chat and forum
       audacity # audio editor
       nextcloud-client # self-hosted cloud platform
+      thunderbird # email client
+      steam # gaming
 
       unstable.yazi # terminal file browser
-      thunderbird # email client
     ];
   };
 
@@ -233,6 +234,9 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.steam = {
+    enable = true;
+  };
 
   # Fix for dynamic libraries
   programs.nix-ld.enable = true;
