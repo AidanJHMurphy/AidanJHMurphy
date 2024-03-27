@@ -46,12 +46,12 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true; # login screen
+    desktopManager.gnome.enable = true; # gnome desktop
+  };
   environment.gnome.excludePackages = with pkgs.gnome; [
     baobab # disk usage analyzer
     cheese # photo booth
