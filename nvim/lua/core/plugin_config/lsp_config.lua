@@ -12,7 +12,6 @@ require("mason-lspconfig").setup({
         "cssls",
         "bashls",
         "marksman",
-        "nil_ls",
     }
 })
 
@@ -24,6 +23,8 @@ require("mason-lspconfig").setup({
 -- markdownlint: more markdown?
 -- mdformat: moremarkdown?!
 -- prettier: Replacement for markdown, css, html, json, jsx, javascript, typescript, yaml, more!
+-- nil_ls: nixos
+-- nixd: nixos
 
 
 -- standard keybinding
