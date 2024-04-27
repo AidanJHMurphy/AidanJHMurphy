@@ -174,7 +174,10 @@ in {
     neovim # terminal editor
     alacritty # terminal
     git # version control
-    ffmpeg # video/audio editing and conversion
+    # video/audio editing and conversion
+    (ffmpeg.override {
+      withXcb = true;
+    })
     ffmpegthumbnailer # thumbnails for video file
     fd # better find utility
     ripgrep # fast search
