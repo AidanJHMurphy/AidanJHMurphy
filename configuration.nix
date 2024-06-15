@@ -99,6 +99,11 @@ in {
     pkgs.xterm
   ];
 
+  # Define laptop closing behavior
+  services.logind.lidSwitch = "suspend";
+  services.logind.lidSwitchDocked = "ignore";
+  services.logind.lidSwitchExternalPower = "lock";
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
