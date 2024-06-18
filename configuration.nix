@@ -209,6 +209,7 @@ in {
     bat # better cat utility for terminal
     protonvpn-gui # GUI for Proton VPN
     alejandra # formatting for nixpkgs
+    libreoffice # suite of office tools
 
     go # golang software
     cargo # rust coding
