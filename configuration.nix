@@ -162,7 +162,6 @@ in {
     description = "Aidan Murphy";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      neofetch # silly cli display tool
       freecad # CAD softward
       snapmaker-luban # 3D printing
       gimp # image editing
