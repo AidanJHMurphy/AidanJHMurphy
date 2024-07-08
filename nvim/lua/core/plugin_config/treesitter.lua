@@ -17,7 +17,9 @@ require 'nvim-treesitter.configs'.setup {
         "gitignore",
     },
     sync_install = false,
-    auto_install = true,
+    -- Don't have tree-sitter installed locally
+    -- Should fix this when move to nix home manager
+    auto_install = false,
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
