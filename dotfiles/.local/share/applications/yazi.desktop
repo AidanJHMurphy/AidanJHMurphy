@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=yazi
+Comment=Terminal file explorer
+Icon=yazi.svg
+Exec=alacritty -e yazi
+Terminal=false
+Keywords=foldr;manager;explore;disk;filesystem
+Categories=FileManager;
+MimeType=inode/directory

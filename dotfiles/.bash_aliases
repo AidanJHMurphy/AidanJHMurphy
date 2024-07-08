@@ -10,9 +10,6 @@ alias_if_exists() {
     fi
 }
 
-# Remove slow part of neofetch by default
-alias neofetch="neofetch --disable gpu"
-
 # Allow my vim muscle memory to do what I want
 alias :q="exit"
 

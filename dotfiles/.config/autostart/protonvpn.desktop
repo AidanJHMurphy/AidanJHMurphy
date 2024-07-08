@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Proton VPN
+Exec=protonvpn
+Terminal=false
+Type=Application
+Icon=protonvpn
+StartupWMClass=Protonvpn
+Comment=Proton VPN GUI client
+Categories=Network;
+Keywords=vpn;
