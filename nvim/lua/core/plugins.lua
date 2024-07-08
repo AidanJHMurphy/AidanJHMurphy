@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
 
     -- terminal launcher
     use 'NvChad/nvterm'
+
     -- syntax highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -68,6 +69,13 @@ return require('packer').startup(function(use)
 
     -- nice git integration
     use 'tpope/vim-fugitive'
+
+    -- latex editor/compiler
+    use {
+        'lervag/vimtex',
+        -- Newest version requires Neovim version 0.9.5
+        tag = 'v2.15',
+    }
 
     -- themes
     use 'ellisonleao/gruvbox.nvim'
