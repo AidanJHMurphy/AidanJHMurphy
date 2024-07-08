@@ -8,6 +8,16 @@
   ...
 }: let
   unstable = import <nixpkgs-unstable> {};
+  tex =
+    pkgs.texlive.combine
+    {
+      # latex packages
+      inherit
+        (pkgs.texlive)
+        scheme-minimal
+        latexmk
+        ;
+    };
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -177,7 +187,7 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox # web browser
-    neovim # terminal editor
+    neovim # tui IDE
     alacritty # terminal
     git # version control
     # video/audio editing and conversion
@@ -211,6 +221,7 @@ in {
     alejandra # formatting for nixpkgs
     libreoffice # suite of office tools
     zathura # pdf viewer
+    tex # custom-defined set of latex utilities
 
     go # golang software
     cargo # rust coding
