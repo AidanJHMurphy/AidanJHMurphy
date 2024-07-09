@@ -14,7 +14,7 @@
       # latex packages
       inherit
         (pkgs.texlive)
-        scheme-basic
+        scheme-full
         latexmk
         ;
     };
