@@ -200,16 +200,15 @@ in {
     poppler_utils # pdf rendering
     zoxide # improved cd cli tool
     fzf # fuzzy finder
-    sxiv # simple image viewer
     ueberzugpp # preview for
     calc # terminal calculator
-    gcc # gnu compiler
+    gcc # gnu c compiler
     nodejs # javascript runtime
     gnumake # executable generation
     wl-clipboard # cli clipboard utility
     wget # retrieve content from web servers
     unzip # unzipping utility
-    vlc # media player
+    mpv # media player
     libinput # handle input devices in wayland compositors
     feh # image viewer
     btop # better system monitor cli

@@ -13,34 +13,34 @@ show_symlink   = true
 
 [opener]
 folder = [
-	{ exec = 'alacritty -e yazi "$@"', block = false, orphan = true },
+	{ run = 'alacritty -e yazi "$@"', block = false, orphan = true },
 ]
 video = [
-	{ exec = 'vlc "$@"', block = false, orphan = true },
+	{ run = 'mpv "$@"', block = false, orphan = true },
 ]
 audio = [
-	{ exec = 'vlc "$@"', block = false, orphan = true },
+	{ run = 'mpv --no-audio-display --quiet "$@"', block = true, orphan = false },
 ]
 pdf = [
-	{ exec = 'firefox -P PdfViewer "$@"', block = false, orphan = true },
+	{ run = 'zathura  "$@"', block = false, orphan = true },
 ]
 image = [
-	{ exec = 'feh "$@"', block = false, orphan = true },
+	{ run = 'feh "$@"', block = false, orphan = true },
 ]
 text = [
-	{ exec = 'nvim "$@"', block = true },
+	{ run = 'nvim "$@"', block = true },
 ]
 sheet = [
-    { exec = 'libreoffice --calc "$@"', block = false, orphan = true },
+    { run = 'libreoffice --calc "$@"', block = false, orphan = true },
 ]
 word = [
-    { exec = 'libreoffice --writer "$@"', block = false, orphan = true },
+    { run = 'libreoffice --writer "$@"', block = false, orphan = true },
 ]
 slide = [
-    { exec = 'libreoffice --impress "$@"', block = false, orphan = true },
+    { run = 'libreoffice --impress "$@"', block = false, orphan = true },
 ]
 fallback = [
-	{ exec = ':' }
+	{ run = ':' }
 ]
 
 [open]
