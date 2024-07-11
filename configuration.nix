@@ -68,7 +68,6 @@ in {
     cheese # photo booth
     eog # image viewer
     epiphany # web browser
-    gedit # text editor
     simple-scan # document scanner
     totem # video player
     yelp # help viewer
@@ -102,8 +101,8 @@ in {
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
   services.xserver.excludePackages = [
     pkgs.xterm
@@ -162,12 +161,12 @@ in {
     description = "Aidan Murphy";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      freecad # CAD softward
-      snapmaker-luban # 3D printing
+      #freecad # CAD softward
+      #snapmaker-luban # 3D printing
       gimp # image editing
       keepassxc # password manager
       eartag # music file tagger
-      texworks # LaTeX editor
+      #texworks # LaTeX editor
       inkscape # image editor and design tool
       discord # group chat and forum
       audacity # audio editor
@@ -240,7 +239,7 @@ in {
   ];
 
   # Add additional font options
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override {
       fonts = [
         "JetBrainsMono"
@@ -294,9 +293,13 @@ in {
   };
   # Get upgrade timer status:
   # systemctl status nixos-upgrade.timer
-
   # Print upgrade log:
   # systemctl status nixos-upgrade.service
+  # even with automatic upgrades, you still need to periodically switch to
+  # the newest channel with:
+  # sudo nix-channel --add [newest version of nixos] nixos
+  # E.G. sudo nix-channel --add http://nixos.org/channels/nixos-24.05
+  # aftwerords, run sudo nixos-rebuild switch
 
   # Remove NixOs manual documentaiton app
   documentation.nixos.enable = false;
