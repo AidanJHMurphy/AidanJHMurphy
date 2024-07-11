@@ -65,8 +65,6 @@ in {
   };
   environment.gnome.excludePackages = with pkgs.gnome; [
     baobab # disk usage analyzer
-    cheese # photo booth
-    eog # image viewer
     epiphany # web browser
     simple-scan # document scanner
     totem # video player
@@ -75,6 +73,8 @@ in {
     file-roller # archive manager
     geary # email client
     seahorse # password manager
+    pkgs.snapshot #webcam tool
+    pkgs.loupe #image viewer
 
     # these should be self explanatory
     gnome-calendar
