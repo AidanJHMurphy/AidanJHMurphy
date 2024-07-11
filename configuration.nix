@@ -7,7 +7,6 @@
   lib,
   ...
 }: let
-  unstable = import <nixpkgs-unstable> {};
   tex =
     pkgs.texlive.combine
     {
@@ -174,7 +173,7 @@ in {
       thunderbird # email client
       steam # gaming
 
-      unstable.yazi # terminal file browser
+      yazi # terminal file browser
     ];
   };
 
