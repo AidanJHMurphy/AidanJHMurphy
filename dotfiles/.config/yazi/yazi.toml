@@ -40,7 +40,7 @@ slide = [
     { run = 'libreoffice --impress "$@"', block = false, orphan = true },
 ]
 fallback = [
-	{ run = ':' }
+	{ run = 'xdg-open $@', block = false, orphan = true }
 ]
 
 [open]
