@@ -286,8 +286,6 @@ in {
   # Automatically update
   system.autoUpgrade = {
     enable = true;
-    dates = "02:00";
-    randomizedDelaySec = "45min";
   };
   # Get upgrade timer status:
   # systemctl status nixos-upgrade.timer
@@ -297,7 +295,14 @@ in {
   # the newest channel with:
   # sudo nix-channel --add [newest version of nixos] nixos
   # E.G. sudo nix-channel --add http://nixos.org/channels/nixos-24.05
-  # aftwerords, run sudo nixos-rebuild switch
+  # afterwords, run sudo nixos-rebuild switch
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+  # Get garbage collection service status:
+  # sustemctl nix-gc.service
 
   # Remove NixOs manual documentaiton app
   documentation.nixos.enable = false;
