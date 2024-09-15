@@ -27,6 +27,14 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
+  # v4l2loopback kernel module is required for obs virtual camera
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+  security.polkit.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -172,6 +180,7 @@ in {
       nextcloud-client # self-hosted cloud platform
       thunderbird # email client
       steam # gaming
+      obs-studio # video capture
 
       yazi # terminal file browser
     ];
@@ -218,6 +227,7 @@ in {
     libreoffice # suite of office tools
     zathura # pdf viewer
     tex # custom-defined set of latex utilities
+    docker # consistent package shipping
 
     go # golang software
     cargo # rust coding
@@ -230,6 +240,9 @@ in {
     gnomeExtensions.just-perfection # finely tweak gnome desktop
     gnomeExtensions.custom-accent-colors # add accent colors to gnome desktop
   ];
+
+  # enable the docker daemon
+  virtualisation.docker.enable = true;
 
   # gnome-settings-daemon udev rules required for systeay icons
   services.udev.packages = with pkgs; [
