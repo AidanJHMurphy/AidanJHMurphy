@@ -105,7 +105,7 @@ return require('packer').startup(function(use)
     -- Markdown Composer
     use({
         'euclio/vim-markdown-composer',
-        run = "cargo build --release",
+        run = "cd ~/.local/share/nvim/site/pack/packer/start/vim-markdown-composer && cargo build --release",
     })
 
     -- code completion
