@@ -230,8 +230,9 @@ in {
     docker # consistent package shipping
 
     go # golang software
-    cargo # rust coding
-    rustup # rust package manager
+    cargo # rust project build and dependency management
+    rustup # rust toolchain installer
+    rustc # rust compiler
     lua # lua coding
 
     gnome.gnome-tweaks # support gnome desktop extensions
