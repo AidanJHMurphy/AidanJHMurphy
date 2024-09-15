@@ -4,7 +4,7 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "sqlls",
         "eslint",
-        "tsserver",
+        "ts_ls",
         "gopls",
         "jsonls",
         "yamlls",
@@ -124,7 +124,7 @@ lsp.eslint.setup({
     root_dir = util.root_pattern("package.json", ".git"),
 })
 
-lsp.tsserver.setup {
+lsp.ts_ls.setup {
     on_attach = default_on_attach,
     capabilities = default_capabilities,
 }
