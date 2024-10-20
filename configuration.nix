@@ -186,8 +186,14 @@ in {
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Allow specific unfree packages
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (pkgs.lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-run"
+      "discord"
+    ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -266,9 +272,6 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.steam = {
-    enable = true;
-  };
 
   # Fix for dynamic libraries
   programs.nix-ld.enable = true;
