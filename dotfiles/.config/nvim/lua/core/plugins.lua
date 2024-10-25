@@ -102,6 +102,16 @@ return require('packer').startup(function(use)
         'kristijanhusak/vim-dadbod-ui'
     }
 
+    -- Inline Markdown Display
+    use({
+        'MeanderingProgrammer/render-markdown.nvim',
+        after = { 'nvim-treesitter' },
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require('render-markdown').setup({})
+        end,
+    })
+
     -- Markdown Composer
     use({
         'euclio/vim-markdown-composer',
