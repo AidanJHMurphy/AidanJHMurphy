@@ -139,6 +139,7 @@ in {
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  services.tailscale.enable = true;
 
   # Enable support for Bluetooth devices
   # https://nixos.wiki/wiki/Bluetooth
