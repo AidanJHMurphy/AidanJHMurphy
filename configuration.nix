@@ -70,6 +70,12 @@ in {
     displayManager.gdm.enable = true; # login screen
     desktopManager.gnome.enable = true; # gnome desktop
   };
+  xdg = {
+    terminal-exec = {
+      enable = false; # doesn't seem to be working
+      package = pkgs.alacritty;
+    };
+  };
   environment.gnome.excludePackages = with pkgs.gnome; [
     baobab # disk usage analyzer
     epiphany # web browser
@@ -247,6 +253,8 @@ in {
     gnomeExtensions.blur-my-shell # visual tweak to app view
     gnomeExtensions.just-perfection # finely tweak gnome desktop
     gnomeExtensions.custom-accent-colors # add accent colors to gnome desktop
+    # xdg-terminal-exec isn't working at the moment
+    # xdg-terminal-exec # allow launching terminal apps in custom terminal
   ];
 
   # enable the docker daemon
