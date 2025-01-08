@@ -186,13 +186,15 @@ in {
       audacity # audio editor
       nextcloud-client # self-hosted cloud platform
       thunderbird # email client
-      steam # gaming
       obs-studio # video capture
 
       yazi # terminal file browser
     ];
   };
 
+  programs.steam = {
+    enable = true;
+  };
   # Allow specific unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (pkgs.lib.getName pkg) [
