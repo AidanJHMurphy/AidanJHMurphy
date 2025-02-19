@@ -76,7 +76,7 @@ in {
       package = pkgs.alacritty;
     };
   };
-  environment.gnome.excludePackages = with pkgs.gnome; [
+  environment.gnome.excludePackages = with pkgs; [
     baobab # disk usage analyzer
     epiphany # web browser
     simple-scan # document scanner
@@ -86,8 +86,8 @@ in {
     file-roller # archive manager
     geary # email client
     seahorse # password manager
-    pkgs.snapshot #webcam tool
-    pkgs.loupe #image viewer
+    snapshot #webcam tool
+    loupe #image viewer
 
     # these should be self explanatory
     gnome-calendar
@@ -100,12 +100,12 @@ in {
     gnome-music
     gnome-system-monitor
     gnome-weather
+    gnome-screenshot
+    gnome-calculator
     pkgs.gnome-connections
     pkgs.gnome-text-editor
     pkgs.gnome-console
     pkgs.gnome-tour
-    gnome-screenshot
-    gnome-calculator
     pkgs.gnome-photos
 
     # Actually want to keep using these, but listing for reference
@@ -129,8 +129,6 @@ in {
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -201,6 +199,7 @@ in {
       "steam"
       "steam-original"
       "steam-run"
+      "steam-unwrapped"
       "discord"
     ];
 
@@ -250,7 +249,7 @@ in {
     rustc # rust compiler
     lua # lua coding
 
-    gnome.gnome-tweaks # support gnome desktop extensions
+    gnome-tweaks # support gnome desktop extensions
     gnomeExtensions.appindicator # add app indicator
     gnomeExtensions.blur-my-shell # visual tweak to app view
     gnomeExtensions.just-perfection # finely tweak gnome desktop
@@ -264,7 +263,7 @@ in {
 
   # gnome-settings-daemon udev rules required for systeay icons
   services.udev.packages = with pkgs; [
-    gnome.gnome-settings-daemon
+    gnome-settings-daemon
   ];
 
   # Add additional font options
