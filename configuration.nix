@@ -242,6 +242,7 @@ in {
     zathura # pdf viewer
     tex # custom-defined set of latex utilities
     docker # consistent package shipping
+    localsend # send files across devices
 
     go # golang software
     cargo # rust project build and dependency management
