@@ -138,6 +138,26 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    # low-latency setup for applications using the pulse backend
+    extraConfig.pipewire-pulse."92-low-latency" = {
+      "context.properties" = [
+        {
+          name = "libpipewire-module-protocol-pulse";
+          args = {};
+        }
+      ];
+      "pulse.properties" = {
+        "pulse.min.req" = "64/48000";
+        "pulse.default.req" = "64/48000";
+        "pulse.max.req" = "64/48000";
+        "pulse.min.quantum" = "64/48000";
+        "pulse.max.quantum" = "64/48000";
+      };
+      "stream.properties" = {
+        "node.latency" = "64/48000";
+        "resample.quality" = 1;
+      };
+    };
     jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
