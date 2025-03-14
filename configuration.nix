@@ -21,6 +21,8 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # Realtime Audio tweaks from https://github.com/musnix/musnix
+    <musnix>
   ];
 
   # Bootloader.
@@ -136,14 +138,26 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+    # low-latency setup
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 64;
+        "default.clock.min-quantum" = 64;
+        "default.clock.max-quantum" = 64;
+      };
+    };
   };
   services.tailscale.enable = true;
+  musnix = {
+    enable = true;
+    das_watchdog.enable = true;
+  };
 
   # Enable support for Bluetooth devices
   # https://nixos.wiki/wiki/Bluetooth
@@ -171,7 +185,11 @@ in {
   users.users.amurphy = {
     isNormalUser = true;
     description = "Aidan Murphy";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+    ];
     packages = with pkgs; [
       #freecad # CAD softward
       #snapmaker-luban # 3D printing
