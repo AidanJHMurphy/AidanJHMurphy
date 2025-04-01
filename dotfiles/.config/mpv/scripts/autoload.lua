@@ -1,3 +1,4 @@
+-- source: https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua
 -- This script automatically loads playlist entries before and after the
 -- currently played file. It does so by scanning the directory a file is
 -- located in when starting playback. It sorts the directory entries
@@ -41,15 +42,15 @@ local utils = require 'mp.utils'
 
 local o = {
     disabled = false,
-    images = true,
-    videos = true,
+    images = false,
+    videos = false,
     audio = true,
     additional_image_exts = "",
     additional_video_exts = "",
     additional_audio_exts = "",
     ignore_hidden = true,
     same_type = false,
-    directory_mode = "auto",
+    directory_mode = "ignore",
     ignore_patterns = ""
 }
 
