@@ -17,12 +17,11 @@
         latexmk
         ;
     };
+  unstable = import <nixpkgs-unstable> {};
 in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # Realtime Audio tweaks from https://github.com/musnix/musnix
-    <musnix>
   ];
 
   # Bootloader.
@@ -174,10 +173,6 @@ in {
     };
   };
   services.tailscale.enable = true;
-  musnix = {
-    enable = true;
-    das_watchdog.enable = true;
-  };
 
   # Enable support for Bluetooth devices
   # https://nixos.wiki/wiki/Bluetooth
@@ -260,7 +255,11 @@ in {
     poppler_utils # pdf rendering
     zoxide # improved cd cli tool
     fzf # fuzzy finder
-    ueberzugpp # preview for
+    # use ueberzugpp from unstable until it works in nix stable
+    # https://github.com/jstkdng/ueberzugpp
+    # it doesn't work in gnome wayland anyway, but I'm hoping one day I'll
+    # update and it'll just magically start working
+    unstable.ueberzugpp # preview for images in the terminal
     calc # terminal calculator
     gcc # gnu c compiler
     nodejs # javascript runtime
