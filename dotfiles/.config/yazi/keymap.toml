@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 append_keymap = [
     { on = "T", run = 'shell --orphan --confirm alacritty', desc = "Open terminal at current dir" },
     { on = "<Tab>", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
