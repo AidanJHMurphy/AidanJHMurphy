@@ -213,7 +213,6 @@ in {
       eartag # music file tagger
       #texworks # LaTeX editor
       inkscape # image editor and design tool
-      #discord # group chat and forum
       legcord # fork of discord -- group chat and forum
       audacity # audio editor
       nextcloud-client # self-hosted cloud platform
@@ -234,7 +233,6 @@ in {
       "steam-original"
       "steam-run"
       "steam-unwrapped"
-      "discord"
     ];
 
   # List packages installed in system profile. To search, run:
