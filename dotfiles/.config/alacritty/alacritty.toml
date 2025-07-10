@@ -1,4 +1,3 @@
-import = ["/home/amurphy/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -15,3 +14,6 @@ opacity = 0.9
 [window.padding]
 x = 5
 y = 5
+
+[general]
+import = ["/home/amurphy/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"]
