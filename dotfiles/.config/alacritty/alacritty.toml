@@ -16,7 +16,7 @@ x = 5
 y = 5
 
 [general]
-import = ["/home/amurphy/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"]
+import = ["themes/themes/gruvbox_material_medium_dark.toml"]
 
 [selection]
 save_to_clipboard = false
