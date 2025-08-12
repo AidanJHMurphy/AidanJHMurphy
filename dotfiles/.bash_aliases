@@ -22,3 +22,9 @@ wttr() {
 	#get local weather
 	curl wttr.in/"$1"?MnF2
 }
+
+# Reset touchpad driver
+reset-mouse() {
+    sudo modprobe -r psmouse
+    sudo modprobe psmouse
+}
