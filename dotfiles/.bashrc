@@ -62,3 +62,18 @@ LINE_UPPER_CORNER="\342\224\214"
 END_CHARACTER="|"
 
 reset_tty
+
+if [[ -z "$ZELLIJ" ]]; then
+    # don't attach when in a neovim shell
+    if [ -z "$NVIM" ]; then
+        if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+            zellij attach -c
+        else
+            zellij
+        fi
+    fi
+
+    if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+        exit
+    fi
+fi
