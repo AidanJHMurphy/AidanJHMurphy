@@ -1,3 +1,7 @@
+-- Still use Mason to manage the language servers for portability
+-- Nix maybe better IDK
+-- Honestly need to reevaluate all of these, and figure out which ones
+-- I actually want to keep, and which should be cleaned up
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
@@ -26,18 +30,7 @@ require("mason-lspconfig").setup({
 -- nil_ls: nixos
 -- nixd: nixos
 
-
--- standard keybinding
-local custom_lsp_keymaps = function()
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
-    vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-end
-
-local auto_format_on_save = function(client, bufnr)
+local format_on_save = function(client, bufnr)
     local lsp_fmt_augrp = vim.api.nvim_create_augroup("LspFormatting", {})
     if client:supports_method("textDocument/formatting") then
         vim.api.nvim_clear_autocmds({
@@ -54,46 +47,65 @@ local auto_format_on_save = function(client, bufnr)
     end
 end
 
--- default behavior for all languages that don't need customization
-local default_on_attach = function(client, bufnr)
-    custom_lsp_keymaps()
-    auto_format_on_save(client, bufnr)
-end
+-- generic/global config
+vim.lsp.config('*', {
+    on_attach = function(client, bufnr)
+        format_on_save(client, bufnr)
+    end
+})
 
-local default_capabilities = require('cmp_nvim_lsp').default_capabilities()
+vim.diagnostic.config({
+    virtual_text = {
+        current_line = true -- show inline messages on current line
+    },
+    signs = {
+        -- apply diagnostic icons
+        text = {
+            [vim.diagnostic.severity.ERROR] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.HINT] = ' ',
+            [vim.diagnostic.severity.INFO] = ' ',
+        }
+    },
+    underline = true, -- underline problematic text
+})
 
--- cute diagnostic icons
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
--- language setup
-local lsp = require("lspconfig")
-local util = require "lspconfig/util"
-
-lsp.lua_ls.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-
-    -- recognize vim global
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-        },
-    }
+-- default lsp behavior is largely good
+-- extend or overwrite in nvim/after/lsp/[lsp_name].lua
+--
+-- Note: I think most of these currently do nothing, since there's no
+-- corresponding file in the lsp directory -- need to test
+--
+-- TODO: somehow combine this list with the Mason ensure_installed directive
+-- so that it's only needing to be maintained in one spot
+local lsp_servers = {
+    lua_ls = "lua-language-server",
+    sqlls = 'sql-language-server',
+    gopls = 'gopls',
+    ts_ls = 'typescript-language-server',
+    eslint = 'vscode-eslint-language-server',
+    jsonls = 'vscode-json-language-server',
+    yaml = 'yaml-language-server',
+    html = 'vscode-html-language-server',
+    cssls = 'vscode-css-language-server',
+    bashls = 'bash-language-server',
+    marksman = 'marksman',
+    rust = 'rust-analyzer',
+    tinymist = 'tinymist',
 }
 
--- diagnostics not really working at all
--- config lives in .config/sql-language-server/.sqllsrc.json
-lsp.sqlls.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-}
+-- for portability, check server can execute before enabling
+for server_name, lsp_executable in pairs(lsp_servers) do
+    if vim.fn.executable(lsp_executable) == 1 then
+        vim.lsp.enable(server_name)
+    else
+        -- print non-enabled servers for visibility
+        print("cannot execute language server: " .. lsp_executable)
+    end
+end
 
+-- consider applying these overrides
+--[[
 lsp.gopls.setup {
     on_attach = default_on_attach,
     capabilities = default_capabilities,
@@ -124,33 +136,4 @@ lsp.eslint.setup({
     root_dir = util.root_pattern("package.json", ".git"),
 })
 
-lsp.ts_ls.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-}
-
-lsp.jsonls.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-}
-
--- diagnostics not working
-lsp.bashls.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-}
-
---lsp.marksman.setup {
---    on_attach = default_on_attach,
---    capabilities = default_capabilities,
---}
-
-lsp.yamlls.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-}
-
-lsp.cssls.setup {
-    on_attach = default_on_attach,
-    capabilities = default_capabilities,
-}
+--]]
