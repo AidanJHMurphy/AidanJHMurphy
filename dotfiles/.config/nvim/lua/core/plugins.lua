@@ -70,6 +70,11 @@ return require('packer').startup(function(use)
     -- nice git integration
     use 'tpope/vim-fugitive'
 
+    use {
+        'chomosuke/typst-preview.nvim',
+        tag = 'v1.*',
+    }
+
     -- latex editor/compiler
     use {
         'lervag/vimtex',
