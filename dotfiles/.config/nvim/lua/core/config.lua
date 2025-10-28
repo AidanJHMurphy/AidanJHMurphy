@@ -37,3 +37,6 @@ vim.opt.spell = true
 
 -- always use system clipboard for yank
 vim.opt.clipboard = "unnamedplus"
+
+-- rounded pop-up window border
+vim.opt.winborder = 'rounded'
