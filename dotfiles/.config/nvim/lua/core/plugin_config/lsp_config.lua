@@ -39,7 +39,7 @@ end
 
 local auto_format_on_save = function(client, bufnr)
     local lsp_fmt_augrp = vim.api.nvim_create_augroup("LspFormatting", {})
-    if client.supports_method("textDocument/formatting") then
+    if client:supports_method("textDocument/formatting") then
         vim.api.nvim_clear_autocmds({
             group = lsp_fmt_augrp,
             buffer = bufnr
