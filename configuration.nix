@@ -73,7 +73,8 @@ in {
   };
   xdg = {
     terminal-exec = {
-      enable = false; # doesn't seem to be working
+      # https://discourse.gnome.org/t/gnome-terminal-or-nautilus-disrespects-xdg-terminal-exec/26193
+      enable = false; # doesn't seem to be working; at least not on Gnome
       package = pkgs.alacritty;
     };
   };
@@ -126,6 +127,9 @@ in {
   services.logind.lidSwitch = "suspend";
   services.logind.lidSwitchDocked = "ignore";
   services.logind.lidSwitchExternalPower = "lock";
+
+  # Enable PCSC-Lite daemon
+  services.pcscd.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -291,8 +295,6 @@ in {
     gnomeExtensions.blur-my-shell # visual tweak to app view
     gnomeExtensions.just-perfection # finely tweak gnome desktop
     gnomeExtensions.custom-accent-colors # add accent colors to gnome desktop
-    # xdg-terminal-exec isn't working at the moment
-    # xdg-terminal-exec # allow launching terminal apps in custom terminal
   ];
 
   # enable the docker daemon
