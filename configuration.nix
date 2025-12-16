@@ -224,6 +224,7 @@ in {
       obs-studio # video capture
       zellij # terminal multiplexer
       yazi # terminal file browser
+      fastfetch # silly little terminal gag
     ];
   };
 
@@ -246,6 +247,7 @@ in {
     neovim # tui IDE
     alacritty # terminal
     git # version control
+    delta # syntax highlighting pager for git
     # video/audio editing and conversion
     (ffmpeg.override {
       withXcb = true;
