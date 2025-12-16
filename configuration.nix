@@ -214,7 +214,7 @@ in {
       #snapmaker-luban # 3D printing
       gimp # image editing
       keepassxc # password manager
-      eartag # music file tagger
+      picard # music file tag editor
       #texworks # LaTeX editor
       inkscape # image editor and design tool
       legcord # fork of discord -- group chat and forum
@@ -222,7 +222,7 @@ in {
       nextcloud-client # self-hosted cloud platform
       thunderbird # email client
       obs-studio # video capture
-
+      zellij # terminal multiplexer
       yazi # terminal file browser
     ];
   };
