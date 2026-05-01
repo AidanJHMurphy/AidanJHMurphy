@@ -225,6 +225,9 @@ in {
       zellij # terminal multiplexer
       yazi # terminal file browser
       fastfetch # silly little terminal gag
+      sox # audio conversion tool
+      ardour # recording software
+      typst # typesetting system
     ];
   };
 
