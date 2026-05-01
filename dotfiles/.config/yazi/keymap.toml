@@ -1,5 +1,5 @@
 [mgr]
-append_keymap = [
+prepend_keymap = [
     { on = "T", run = 'shell --orphan --confirm alacritty', desc = "Open terminal at current dir" },
     { on = "<Tab>", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
     { on = "<BackTab>", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
