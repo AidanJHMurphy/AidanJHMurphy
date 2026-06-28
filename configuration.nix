@@ -73,9 +73,9 @@ in {
   };
   xdg = {
     terminal-exec = {
-      # https://discourse.gnome.org/t/gnome-terminal-or-nautilus-disrespects-xdg-terminal-exec/26193
-      enable = false; # doesn't seem to be working; at least not on Gnome
-      package = pkgs.alacritty;
+      enable = true;
+      # using ~/.config/xdg-terminals.list instead for portability
+      # package = pkgs.alacritty;
     };
   };
   environment.gnome.excludePackages = with pkgs; [
